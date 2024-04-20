@@ -20,12 +20,16 @@ public class WriteToExcel {
     public void writeToExcl() {
         FileOutputStream fos = null;
         XSSFWorkbook xlWorkbook = null;
-        try {
+        try { 
+            //set a stream to connect to excel file
             FileInputStream fis = new FileInputStream("C:\\Users\\FELCY\\eclipse-workspace\\excelReadWrite\\ExcelWrite.xlsx");
+            //open a workbook
             xlWorkbook = new XSSFWorkbook(fis);
+            //open a sheet
             XSSFSheet xlSheet = xlWorkbook.getSheetAt(0);
-
+           // creating a row
             XSSFRow xlRow = xlSheet.createRow(0);
+            //creating a cell and setting cell values 
             XSSFCell xlCell = xlRow.createCell(0);
             xlCell.setCellValue("Name");
             xlCell = xlRow.createCell(1);
@@ -64,10 +68,11 @@ public class WriteToExcel {
             xlCell.setCellValue("37");
             xlCell = xlRow.createCell(2);
             xlCell.setCellValue("swapnil@example.com");
-
+            // set the output file stream 
             fos = new FileOutputStream("C:\\Users\\FELCY\\eclipse-workspace\\excelReadWrite\\ExcelWrite.xlsx");
             xlWorkbook.write(fos);
             System.out.println("Writing to Excel completed");
+            //closing the workbook and the streams 
             xlWorkbook.close();
             fis.close();
             fos.close();
