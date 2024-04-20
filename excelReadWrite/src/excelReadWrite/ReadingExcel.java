@@ -17,13 +17,11 @@ public class ReadingExcel {
 	}
 	public void readFromExcel(){
 		//set the stream to connect to excel file
-		FileInputStream fis;
 		try {
-			fis = new FileInputStream("C:\\Users\\FELCY\\eclipse-workspace\\excelReadWrite\\ExcelRead.xlsx");
+			FileInputStream fis = new FileInputStream("C:\\Users\\FELCY\\eclipse-workspace\\excelReadWrite\\ExcelRead.xlsx");
 				//open the workbook
-		XSSFWorkbook ExcelWorkbook;
 		try {
-			ExcelWorkbook = new XSSFWorkbook(fis);
+			XSSFWorkbook ExcelWorkbook = new XSSFWorkbook(fis);
 				//open the sheet
 		XSSFSheet xlSheet = ExcelWorkbook.getSheetAt(0);
 				//get hold of the rows
@@ -40,12 +38,12 @@ public class ReadingExcel {
 		
 	}
 		 catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
+			
 				e.printStackTrace();
 			}
 		}
 		catch (IOException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		 
